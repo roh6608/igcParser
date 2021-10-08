@@ -13,7 +13,20 @@ parse = function(filepath, record = "B"){
   # leave the I record stuff till last, can try and get on cran before doing that
   # can also add viggnettes
   # probably can finish by the weekend
-
+  # can use the date from the A record for the strptime
+  # will need to write more in the documentation about which records can be used
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   if((record == "B") | (record == "b")){
     time = vector(length = length(file),mode ="character")
     latitude = vector(length = length(file),mode ="character")
