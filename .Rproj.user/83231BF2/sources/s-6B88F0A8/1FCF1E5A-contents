@@ -77,3 +77,25 @@ lonParse = function(string){
 
   return(deg)
 }
+
+#' Give the amount of entries for a certain record
+#' @param charVec The vector of characters to operate on.
+#' @param record The record to find the amount of entries for.
+#' @return The amount of entries for the given record.
+#' @examples
+#' recordLength("test.igc","B")
+recordLength = function(charVec, record){
+  records = LETTERS[seq(1,12)]
+  len = 0
+  # add error checking ensure only character
+
+  for(i in 1:length(records)){
+    for(j in 1:length(charVec)){
+      if((records[i] == substring(charVec[j],1,1)) && (records[i] == record)){
+        len = len + 1
+      }
+    }
+  }
+
+  return(len)
+}

@@ -17,21 +17,25 @@ parse = function(filepath, record = "B"){
   # will need to write more in the documentation about which records can be used
 
   if((record == "B") | (record == "b")){
-    time = vector(length = length(file),mode ="character")
-    latitude = vector(length = length(file),mode ="character")
-    longitude = vector(length = length(file),mode ="character")
-    fixVal = vector(length = length(file),mode ="character")
-    pressAlt = vector(length = length(file),mode ="character")
-    gnssAlt = vector(length = length(file),mode ="character")
+    len = recordLength(file, "B")
+    print(len)
+    time = vector(length = len,mode ="character")
+    latitude = vector(length = len,mode ="character")
+    longitude = vector(length = len,mode ="character")
+    fixVal = vector(length = len,mode ="character")
+    pressAlt = vector(length = len,mode ="character")
+    gnssAlt = vector(length = len,mode ="character")
+    j = 1
 
     for(i in 1:length(file)){
       if(substring(file[i],1,1) == "B"){
-        time[i] = substring(file[i],2,7)
-        latitude[i] = substring(file[i],8,15)
-        longitude[i] = substring(file[i],16,24)
-        fixVal[i] = substring(file[i],25,25)
-        pressAlt[i] = substring(file[i],26,30)
-        gnssAlt[i] = substring(file[i],31,35)
+        time[j] = substring(file[i],2,7)
+        latitude[j] = substring(file[i],8,15)
+        longitude[j] = substring(file[i],16,24)
+        fixVal[j] = substring(file[i],25,25)
+        pressAlt[j] = substring(file[i],26,30)
+        gnssAlt[j] = substring(file[i],31,35)
+        j = j + 1
       }
     }
 
